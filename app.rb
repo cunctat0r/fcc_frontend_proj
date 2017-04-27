@@ -9,3 +9,8 @@ end
 get '/about' do
   erb :about
 end
+
+get '/quotes' do
+  erb :quotes
+end
+

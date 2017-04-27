@@ -1,0 +1,46 @@
+<div class="container-fluid">
+<div class="bodydiv">
+  <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 quote align-middle" >
+          <div id="placeholder">
+                <blockquote>
+                      <p>What Mr. Trump said?</p>
+                </blockquote>
+          </div>
+          <br />
+      <div class="col-md-4"></div>
+      <button type="button" class="btn btn-primary" id="change"><i class="fa fa-refresh"></i></button>
+      <button type="button" class="btn btn-primary" id="tweet"><i class="fa fa-twitter"></i></button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+
+function openURL(url){
+    window.open(url, 'Share', 'width=550, height=400, toolbar=0, scrollbars=1 ,location=0 ,statusbar=0,menubar=0, resizable=0');
+};
+
+$("#change").on("click", function(){
+    var response = $.ajax({
+          crossDomain: true,
+          method:'GET',    
+          url:'https://api.whatdoestrumpthink.com/api/v1/quotes/random',
+          cache: false,
+          dataType: 'json',
+          success: function(responseData, textStatus, jqXHR) {
+            $("#placeholder").html(responseData.message);
+          },
+          error: function (responseData, textStatus, errorThrown) {
+            alert('GET failed.');
+          }
+        });
+});
+
+$("#tweet").on("click", function() {
+   var currentQuote = $("#placeholder").text(); openURL('https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent('"' + currentQuote + '" ' + 'D. Trump'));
+});
+
+</script>

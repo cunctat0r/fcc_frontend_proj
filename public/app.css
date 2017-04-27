@@ -1,0 +1,19 @@
+.bodydiv {
+  height: 100vh;
+  background-image:url(https://img-fotki.yandex.ru/get/223280/50875218.0/0_1ab574_2dabaffa_orig);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;    
+}
+
+.quote {
+  background-color:white;
+  margin-top: 200px;
+  padding: 10px;
+  border-color: white;
+  border-radius: 10px;
+  font-family: Lobster;
+}
+
+
