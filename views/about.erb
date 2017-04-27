@@ -1,0 +1,23 @@
+<div>
+  <div id="placeholder">Test</div>
+  <br />
+  <button type="button" class="btn btn-primary" id="change">Primary</button>
+</div>
+
+<script>
+$("#change").on("click", function(){
+    var response = $.ajax({
+          crossDomain: true,
+          method:'GET',
+          url:'https://api.whatdoestrumpthink.com/api/v1/quotes/random',
+          cache: false,
+          dataType: 'json',                                      
+          success: function(responseData, textStatus, jqXHR) {
+            $("#placeholder").html(responseData.message);
+          },
+          error: function (responseData, textStatus, errorThrown) {
+            alert('GET failed.');
+          }
+         });
+});
+</script>
